@@ -3,7 +3,7 @@ import json
 
 client = MongoClient()
 
-db = client["A4DBNorm"]
+db = client["A4dbNorm"]
 
 # Deals with Artists
 artists_collection = db["Artists"]
