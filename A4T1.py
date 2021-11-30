@@ -8,7 +8,7 @@ db = client["A4dbNorm"]
 # Deals with Artists
 artists_collection = db["Artists"]
 
-with open("Artists.json", "r") as read_file:
+with open("artists.json", "r") as read_file:
     artists_data = json.load(read_file)
 
 artists_id = []
@@ -28,7 +28,7 @@ ret = artists_collection.insert_many(artists_data)
 # Deals with Tracks 
 tracks_collection = db["Tracks"]
 
-with open("Tracks.json", "r") as read_file:
+with open("tracks.json", "r") as read_file:
     tracks_data = json.load(read_file)
 
 tracks_id = []
