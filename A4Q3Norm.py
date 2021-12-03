@@ -4,30 +4,25 @@ client = MongoClient()
 
 db = client["A4dbNorm"]
 
-result = db.Tracks.aggregate([
-		{"$match": {
-			"artist_ids": {"$exists": True}
-			}
-		},
-		{"$unwind": "$artist_ids"
-		 },
-		{"$group": {
-			"_id": "$artist_ids",
-			"total_length": {"$sum": "$duration"}
-			}
+result = db.Artists.aggregate([
+		{"$lookup":
+			{
+			"from": "Tracks",
+			"localField": "artist_id",
+			"foreignField": "artist_ids",
+			"as": "track_info"
+				}
 		},
 		{
 		"$project":{
-			"_id": 0,
-			"artist_id": "$_id",
-			"total_length": 1
+			"_id": "$artist_id",
+			"total_length": {"$sum": "$track_info.duration"},
+			"artist_id": "$artist_id"
 			}
 		},
 		{
 		"$sort": {"artist_id": 1}
-		}
-		
-		
+		}	
 ])
 
 for i in result:
