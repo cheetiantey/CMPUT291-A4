@@ -1,4 +1,3 @@
-
 from pymongo import MongoClient
 
 client = MongoClient()
@@ -6,7 +5,6 @@ client = MongoClient()
 db = client["A4dbEmbed"]
 
 result = db.ArtistsTracks.aggregate([
-#	{"$unwind": "$tracks"},
 		{"$match": {
 			"$nor": [{"tracks": {"$exists": False}}, {"tracks": {"$size": 0}}]}
 		},
