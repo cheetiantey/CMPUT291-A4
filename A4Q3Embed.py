@@ -6,6 +6,10 @@ client = MongoClient()
 db = client["A4dbEmbed"]
 
 result = db.ArtistsTracks.aggregate([
+#	{"$unwind": "$tracks"},
+		{"$match": {
+			"$nor": [{"tracks": {"$exists": False}}, {"tracks": {"$size": 0}}]}
+		},
 		{
 		"$project":{
 			"_id": "$artist_id",
