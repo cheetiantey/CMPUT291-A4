@@ -20,6 +20,8 @@ result = db.Tracks.aggregate([
 				}
 		},
 		{"$unwind": "$track_info"},
+		{"$project":{
+			"_id": "$track_info._id",
 			"name": "$track_info.name",
 			"t_name": "$name",
 			"t_release_date": "$release_date"
