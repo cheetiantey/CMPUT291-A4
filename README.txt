@@ -21,3 +21,6 @@ Student 4:
 	Quantification of contribution: 25%
 
 We declare that we did not collaborate with anyone outside our own group in this assignment.
+
+Libraries version used:
+	pymongo==4.0
