@@ -17,7 +17,7 @@ result = db.Tracks.aggregate([
     },
     {
     "$project":{
-        "_id": 0,
+        "_id": 1,
         "avg_danceability": 1
     }
     }

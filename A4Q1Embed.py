@@ -9,7 +9,7 @@ result = db.ArtistsTracks.aggregate([
         "$nor": [{"tracks": {"$exists": False}}, {"tracks": {"$size": 0}}]}
     },
     {"$project": 
-        {"_id": 0,
+        {"_id": 1,
          "artist_id": 1,
          "name": 1,
         "num_tracks" : { 
