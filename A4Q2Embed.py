@@ -14,7 +14,7 @@ result = db.ArtistsTracks.aggregate([
     },
     {
         "$group":{
-            "_id": "null",
+            "_id": "",
             "avg_danceability": {"$avg": "$tracks.danceability"}
         }
     },
